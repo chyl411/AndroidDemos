@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:id="@+id/action_search"
+        android:title="action_search"></item>
+    <item android:id="@+id/action_notifications"
+        android:title="action_notifications"></item>
+    <item android:id="@+id/action_settings"
+        android:title="action_settings"></item>
+</menu>
