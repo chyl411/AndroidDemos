@@ -7,3 +7,5 @@
 3.	用本地缓存加速图片加载速度
 
 4.	其它相关内容  RecyclerView,Handler,okhttp,gson等
+
+![demo](https://github.com/chyl411/AndroidDemos/blob/master/ImageLoader/app/src/main/res/mipmap-hdpi/sss.gif);
