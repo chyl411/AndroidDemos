@@ -1,0 +1,1 @@
+使用aidl通信，控制音乐播放service。实现音乐播放控制，并在notification栏实现控制功能。
