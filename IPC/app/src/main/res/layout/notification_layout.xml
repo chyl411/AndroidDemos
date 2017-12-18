@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/player_panel">
+
+    <ImageView
+        android:id="@+id/widget_album"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/head" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+        <Button
+            android:id="@+id/prevBtnId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:background="@drawable/player_layout_preview"/>
+
+        <Button
+            android:id="@+id/plyBtnId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|center_vertical"
+            android:background="@drawable/player_layout_play"/>
+
+        <Button
+            android:id="@+id/pauBtnId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center|center_vertical"
+            android:background="@drawable/player_layout_pause"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/nxtBtnId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/player_layout_next"/>
+    </FrameLayout>
+</LinearLayout>
