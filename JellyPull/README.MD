@@ -4,4 +4,4 @@
 
 2.	使用贝塞尔曲线等绘制自定义view
 
-![demo]()
+![demo](https://github.com/chyl411/AndroidDemos/blob/master/JellyPull/imgs/jelly.gif)
