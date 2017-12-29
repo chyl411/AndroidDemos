@@ -8,4 +8,4 @@
 
 4.	其它相关内容  RecyclerView,Handler,Observable,Observer,gson等
 
-![demo](https://github.com/chyl411/AndroidDemos/blob/master/ImageLoader/app/src/main/res/mipmap-hdpi/sss.gif)
+![demo](https://github.com/chyl411/AndroidDemos/blob/master/Downloader/img/downloader.gif)
