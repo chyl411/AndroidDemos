@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="zte.com.downloader.Activities.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/main_fg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <FrameLayout
+            android:id="@+id/inner_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fab_edit_task_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_gravity="right|bottom">
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/detailed_action_update_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/blue_colorPrimary"
+                fab:fab_icon="@mipmap/ic_launcher"
+                fab:fab_colorPressed="@color/blue_colorPrimaryDark"
+                fab:fab_title="开始下载" />
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#cccccc"
+        app:menu="@menu/navigation" />
+
+</LinearLayout>
