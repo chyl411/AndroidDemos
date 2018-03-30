@@ -1,4 +1,4 @@
-package zte.com.ipc;
+package zte.com.ipc.nludomain.playerdomain;
 
 /**
  * Created by chyl411 on 2017/12/15.

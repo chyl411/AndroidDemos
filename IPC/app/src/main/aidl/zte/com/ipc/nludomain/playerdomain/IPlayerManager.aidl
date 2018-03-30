@@ -1,7 +1,7 @@
 // IPlayerManager.aidl
-package zte.com.ipc;
+package zte.com.ipc.nludomain.playerdomain;
 
-import zte.com.ipc.Music;
+import zte.com.ipc.nludomain.playerdomain.Music;
 
 interface IPlayerManager {
     void updatePlayList(in List<Music> list);

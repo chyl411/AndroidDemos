@@ -6,7 +6,6 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,12 +13,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, PlayListAdapter.OnItemClickListener {
+import zte.com.ipc.Model.NLUPojo.Domain;
+import zte.com.ipc.Model.NLUPojo.NLUPojo;
+import zte.com.ipc.nludomain.playerdomain.DaemonService;
+import zte.com.ipc.nludomain.playerdomain.IPlayerManager;
+import zte.com.ipc.nludomain.playerdomain.Music;
+import zte.com.ipc.nludomain.playerdomain.PlayListAdapter;
+import zte.com.ipc.nludomain.playerdomain.activitys.ActivityRecog;
+import zte.com.ipc.recognization.CommonRecogParams;
+import zte.com.ipc.recognization.nlu.NluRecogParams;
+
+public class MainActivity extends ActivityRecog implements View.OnClickListener, PlayListAdapter.OnItemClickListener {
     private Button btnPause, btnPlay, btnPrev, btnNext;
     private RecyclerView playListView;
     private SeekBar skbProgress;
@@ -29,12 +40,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Timer mTimer = new Timer();
 
     static {
-        li.add(new Music("钢琴曲 - 轻音乐集 - 19岁的纯情", "http://sc1.111ttt.com:8282/2015/1/03m/14/96141925588.m4a?#.mp3"));
-        li.add(new Music("石进 - 夜的钢琴曲二十七", "http://sc1.111ttt.com:8282/2015/1/04m/05/97051152159.m4a?#.mp3"));
-        li.add(new Music("纯音乐 夜空中最亮的星", "http://sc1.111ttt.com:8282/2015/1/06m/16/99162014044.m4a?#.mp3"));
-        li.add(new Music("钢琴曲 - 菊次郎的夏天", "http://sc1.111ttt.com:8282/2015/1/04m/25/97250104332.m4a?#.mp3"));
-        li.add(new Music("Remember", "http://sc1.111ttt.com:8282/2015/1/04m/20/97202128349.m4a?#.mp3"));
-        li.add(new Music("钢琴曲 - 轻音乐集", "http://sc1.111ttt.com:8282/2014/1/12m/26/5262046509.m4a?#.mp3"));
+        li.add(new Music("说散就散", "http://music.163.com/song/media/outer/url?id=523251118.mp3"));
+        li.add(new Music("空空如也", "http://music.163.com/song/media/outer/url?id=526464293.mp3"));
+        li.add(new Music("Panama", "http://music.163.com/song/media/outer/url?id=34229976.mp3"));
+        li.add(new Music("BINGBIAN病变", "http://music.163.com/song/media/outer/url?id=543607345.mp3"));
+        li.add(new Music("烟火里的尘埃", "http://music.163.com/song/media/outer/url?id=29004400.mp3"));
+        li.add(new Music("Beautiful Now", "http://music.163.com/song/media/outer/url?id=32019002.mp3"));
+        li.add(new Music("Dream It Possible", "http://music.163.com/song/media/outer/url?id=38592976.mp3"));
+    }
+
+    @Override
+    protected CommonRecogParams getApiParams() {
+        return new NluRecogParams(this);
     }
 
     private ServiceConnectionImpl mConnection = null;
@@ -94,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initRecyclerView();
         setupTimer();
+        initView();
     }
 
     /*******************************************************
@@ -205,6 +223,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
+        }
+    }
+
+    @Override
+    public void execNluAction(String json){
+        if(json.startsWith("nlujson:")){
+            String str = json.replace("nlujson:", "");
+
+            Gson g = new Gson();
+            NLUPojo np = g.fromJson(str, NLUPojo.class);
+
+            ArrayList<Domain> domainList = np.merged_res.semantic_form.results;
+
+            for(int i = 0 ; i < domainList.size(); i++)
+            {
+                Domain dm = domainList.get(i);
+                if(dm.domain.equals("player")){
+                    if(pm == null)
+                        return;
+
+                    if(dm.intent.equals("set")){
+                        try {
+                        switch (dm.object.get("action_type")){
+                            case "play":
+                                pm.actionStart();
+                                break;
+                            case "pause":
+                                pm.actionPause();
+                                break;
+                            case "previous":
+                                pm.actionPrevious();
+                                break;
+                            case "next":
+                                pm.actionNext();
+                                break;
+                            case "exitplayer":
+                                break;
+                            }
+                        } catch (RemoteException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else if(dm.intent.equals("play")){
+
+                    }
+                }
+            }
         }
     }
 }

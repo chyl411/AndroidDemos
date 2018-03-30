@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.UPDATE_APP_OPS_STATS"/>
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.baidu.speech.APP_ID"
+            android:value="11008123" />
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="yAz1HhvkOVDwXULVVCIKeGHR" />
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="04ad6ecdc1ad4e95fd3eca9daba45685" />
+        <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +35,10 @@
         </activity>
 
         <service
-            android:name=".DaemonService"
+            android:name=".nludomain.playerdomain.DaemonService"
             android:enabled="true"
             android:exported="false"
-            android:process=":daemon" />
+            />
 
     </application>
 

@@ -1,4 +1,4 @@
-package zte.com.ipc;
+package zte.com.ipc.nludomain.playerdomain;
 
 import android.os.Parcel;
 import android.os.Parcelable;

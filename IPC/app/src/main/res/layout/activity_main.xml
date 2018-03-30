@@ -19,27 +19,37 @@
 
             <Button
                 android:id="@+id/btnPlay"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="播放"></Button>
 
             <Button
                 android:id="@+id/btnPause"
-                android:layout_width="80dip"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="暂停"></Button>
 
             <Button
                 android:id="@+id/btnPreview"
-                android:layout_width="80dip"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="上一首"></Button>
 
             <Button
                 android:id="@+id/btnNext"
-                android:layout_width="80dip"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="下一首"></Button>
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="录音"></Button>
         </LinearLayout>
 
         <LinearLayout
@@ -64,4 +74,6 @@
         android:id="@+id/playListViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+
 </LinearLayout>

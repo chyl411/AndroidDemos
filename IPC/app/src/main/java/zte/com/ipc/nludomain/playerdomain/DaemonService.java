@@ -1,4 +1,4 @@
-package zte.com.ipc;
+package zte.com.ipc.nludomain.playerdomain;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -17,6 +17,9 @@ import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
+import zte.com.ipc.R;
 
 
 public class DaemonService extends Service {

@@ -1,13 +1,14 @@
-package zte.com.ipc;
+package zte.com.ipc.nludomain.playerdomain;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import zte.com.ipc.R;
 
 /**
  * Created by chyl411 on 2017/12/15.
